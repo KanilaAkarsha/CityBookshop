@@ -46,7 +46,7 @@ public class LoginUI {
         showAlert("Login Successful!");
 
 
-        if (AuthManager.getCurrentUser(user)) {
+        if (AuthManager.getCurrentUser(user, pass)) {
             try {
                 new DashboardUI().start(new Stage());
                 stage.close();

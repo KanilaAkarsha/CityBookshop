@@ -24,7 +24,7 @@ public class SignupUI {
         username.setPromptText("Username");
 
         TextField role = new TextField();
-        role.setPromptText("Role (e.g. admin, customer)");
+        role.setPromptText("Role (e.g. admin, user)");
 
         PasswordField password = new PasswordField();
         password.setPromptText("Password");
@@ -35,13 +35,14 @@ public class SignupUI {
 
     String user = username.getText();
     String pass = password.getText();
+    String roleValue = role.getText();
 
-    if (user.isEmpty() || pass.isEmpty()) {
+    if (user.isEmpty() || pass.isEmpty() || roleValue.isEmpty()) {
         showAlert("Please fill all fields!");
         return;
     }
 
-    if (AuthManager.signup(user, pass, "user")) { // default role "user"
+    if (AuthManager.signup(user, pass, roleValue)) { // use roleValue instead of "user"
         showAlert("Signup successful! Please login.");
         try {
             new LoginUI().show(new Stage());
@@ -68,7 +69,7 @@ public class SignupUI {
             scene.getStylesheets().add(css.toExternalForm());
         }
 
-        stage.setTitle("CityBookshop - Login");
+        stage.setTitle("CityBookshop - Signup");
         stage.setScene(scene);
         stage.show();
     }

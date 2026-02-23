@@ -32,9 +32,9 @@ public class AuthManager {
     }
 
     // Get current logged in user (for simplicity, we just return the first match)
-    public static boolean getCurrentUser(String username) {
+    public static boolean getCurrentUser(String username, String password) {
         for (User u : Database.users) {
-            if (u.getUsername().equalsIgnoreCase(username) && u.getRole().equalsIgnoreCase("admin")) {
+            if (u.getUsername().equalsIgnoreCase(username) && u.getPassword().equals(password) && u.getRole().equalsIgnoreCase("admin")) {
                 return true; // user exists
             }
         }

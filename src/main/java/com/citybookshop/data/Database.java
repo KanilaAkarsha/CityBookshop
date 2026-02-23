@@ -11,7 +11,5 @@ public class Database {
     public static List<Book> books = new ArrayList<>();
 
     // Add some initial data
-    static {
-        
-    }
+    
 }
