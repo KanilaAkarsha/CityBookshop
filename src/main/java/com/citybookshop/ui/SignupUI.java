@@ -43,9 +43,9 @@ public class SignupUI {
     }
 
     if (AuthManager.signup(user, pass, roleValue)) { 
-        showAlert("Signup successful! Please login.");
+        showAlert("Signup successful! ");
         try {
-            new LoginUI().show(new Stage());
+            new DashboardUI().start(new Stage());
             stage.close();
         } catch (Exception ex) {
             ex.printStackTrace();

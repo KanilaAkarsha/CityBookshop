@@ -27,10 +27,7 @@ public class LoginUI {
 
         Button loginBtn = new Button("Login");
 
-        Button signupBtn = new Button("Sign Up");
-        signupBtn.setOnAction(e -> {
-            SignupUI.show(new Stage());
-        });
+        
 
        loginBtn.setOnAction(e -> {
 
@@ -42,7 +39,7 @@ public class LoginUI {
         return;
     }
 
-    if (AuthManager.login(user, pass)) { 
+    if (AuthManager.login(user, pass)) {
         showAlert("Login Successful!");
 
 
@@ -67,7 +64,7 @@ public class LoginUI {
     }
 });
 
-        VBox card = new VBox(15, username, password, loginBtn, signupBtn);
+        VBox card = new VBox(15, username, password, loginBtn);
         card.getStyleClass().add("card");
         card.setMaxWidth(300);
 

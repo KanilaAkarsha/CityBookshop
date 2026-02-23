@@ -18,8 +18,12 @@ public class DashboardUI extends Application {
 
         Button addBook = new Button("➕ Add Book");
         Button viewBooks = new Button("📖 View Books");
+        Button addMember = new Button("Add Member");
+        addMember.setOnAction(e -> {
+            SignupUI.show(new Stage());
+        });
 
-        VBox sidebar = new VBox(20, addBook, viewBooks);
+        VBox sidebar = new VBox(20, addBook, viewBooks, addMember);
         sidebar.setAlignment(Pos.CENTER);
         sidebar.setStyle("-fx-padding: 20; -fx-background-color: #1e3c72;");
 

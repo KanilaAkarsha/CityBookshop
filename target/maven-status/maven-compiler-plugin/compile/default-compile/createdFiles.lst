@@ -2,7 +2,9 @@ com/citybookshop/ui/AddBookUI.class
 com/citybookshop/util/AuthManager.class
 com/citybookshop/Main.class
 com/citybookshop/util/FileManager.class
+com/citybookshop/ui/DashboardUI.class
 com/citybookshop/data/Database.class
+com/citybookshop/ui/UserUI.class
 com/citybookshop/util/DatabaseManager.class
 com/citybookshop/model/Book.class
 com/citybookshop/ui/ViewBooksUI.class
