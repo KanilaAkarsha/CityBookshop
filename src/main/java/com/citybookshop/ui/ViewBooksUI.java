@@ -24,7 +24,7 @@ public class ViewBooksUI {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 
         TableColumn<Book, String> nameCol = new TableColumn<>("Title");
-        nameCol.setCellValueFactory(new PropertyValueFactory<>("title"));
+        nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
 
         TableColumn<Book, String> categoryCol = new TableColumn<>("Category");
         categoryCol.setCellValueFactory(new PropertyValueFactory<>("category"));
@@ -32,8 +32,8 @@ public class ViewBooksUI {
         TableColumn<Book, Double> priceCol = new TableColumn<>("Price");
         priceCol.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        TableColumn<Book, Integer> stockCol = new TableColumn<>("Stock");
-        stockCol.setCellValueFactory(new PropertyValueFactory<>("stock"));
+        TableColumn<Book, Integer> stockCol = new TableColumn<>("Quantity");
+        stockCol.setCellValueFactory(new PropertyValueFactory<>("qty"));
 
         table.getColumns().addAll(idCol, nameCol, categoryCol, priceCol, stockCol);
 
@@ -47,7 +47,7 @@ public class ViewBooksUI {
         root.setAlignment(Pos.CENTER);
         root.setStyle("-fx-padding: 20;");
 
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 700, 400);
         stage.setTitle("All Books");
         stage.setScene(scene);
         stage.show();

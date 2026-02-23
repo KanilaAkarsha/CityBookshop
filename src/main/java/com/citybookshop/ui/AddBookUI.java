@@ -1,7 +1,5 @@
 package com.citybookshop.ui;
 
-import com.citybookshop.util.DatabaseManager;
-
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -30,18 +28,30 @@ public class AddBookUI {
         Button save = new Button("Save");
 
         save.setOnAction(e -> {
-            String bookId = id.getText();
-            String bookName = name.getText();
-            String bookCategory = category.getText();
-            double bookPrice = Double.parseDouble(price.getText());
-            int bookQty = Integer.parseInt(qty.getText());
+    try {
+        String idValue = id.getText();
+        String nameValue = name.getText();
+        String categoryValue = category.getText();
 
-            if (DatabaseManager.addBook(new com.citybookshop.model.Book(bookId, bookName, bookCategory, bookPrice, bookQty))) {
-                showAlert("Book added successfully!");
-            } else {
-                showAlert("Failed to add book!");
-            }
-        });
+        // Remove commas and any non-digit chars from price
+        String priceText = price.getText().replaceAll("[^0-9.]", "");
+        double priceValue = Double.parseDouble(priceText);
+
+        String qtyText = qty.getText().replaceAll("[^0-9]", "");
+        int qtyValue = Integer.parseInt(qtyText);
+
+        // Add book to database
+        com.citybookshop.data.Database.books.add(
+            new com.citybookshop.model.Book(idValue, nameValue, categoryValue, priceValue, qtyValue)
+        );
+
+        com.citybookshop.util.DatabaseManager.saveData(); // save to file
+        System.out.println("Book added successfully!");
+
+    } catch (NumberFormatException ex) {
+        System.out.println("Invalid number input!");
+    }
+});
 
         VBox card = new VBox(15, id, name, category, price, qty, save);
         card.getStyleClass().add("card");
