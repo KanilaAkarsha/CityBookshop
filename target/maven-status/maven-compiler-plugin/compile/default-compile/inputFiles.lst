@@ -1,0 +1,13 @@
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/Main.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/data/Database.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/model/Book.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/model/User.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/ui/AddBookUI.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/ui/DashboardUI.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/ui/LoginUI.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/ui/SignupUI.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/ui/UserUI.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/ui/ViewBooksUI.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/util/AuthManager.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/util/DatabaseManager.java
+/Users/kanilaakarsha/Documents/Campus/CityBookshop/src/main/java/com/citybookshop/util/FileManager.java

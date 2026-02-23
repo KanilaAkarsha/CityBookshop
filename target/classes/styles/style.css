@@ -1,0 +1,28 @@
+.root {
+  -fx-font-family: "Segoe UI", sans-serif;
+  -fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);
+}
+
+.card {
+  -fx-background-color: white;
+  -fx-padding: 30;
+  -fx-background-radius: 15;
+  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 15, 0, 0, 5);
+}
+
+.button {
+  -fx-background-color: #2a5298;
+  -fx-text-fill: white;
+  -fx-font-weight: bold;
+  -fx-background-radius: 8;
+}
+
+.button:hover {
+  -fx-background-color: #1e3c72;
+}
+
+.text-field,
+.password-field {
+  -fx-background-radius: 8;
+  -fx-padding: 8;
+}
