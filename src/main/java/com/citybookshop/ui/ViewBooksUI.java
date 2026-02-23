@@ -5,21 +5,41 @@ import com.citybookshop.model.Book;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ViewBooksUI {
 
     public static void show(Stage stage) {
+
+       
+        TextField nameField = new TextField();
+        nameField.setPromptText("Search by Name");
+
+        TextField categoryField = new TextField();
+        categoryField.setPromptText("Search by Category");
+
+        TextField priceField = new TextField();
+        priceField.setPromptText("Search by Price");
+
+        Button searchBtn = new Button("Search");
+        Button resetBtn = new Button("Reset");
+
+        HBox searchBox = new HBox(10, nameField, categoryField, priceField, searchBtn, resetBtn);
+        searchBox.setAlignment(Pos.CENTER);
+
         
         TableView<Book> table = new TableView<>();
 
-       
         TableColumn<Book, String> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -36,18 +56,68 @@ public class ViewBooksUI {
         stockCol.setCellValueFactory(new PropertyValueFactory<>("qty"));
 
         table.getColumns().addAll(idCol, nameCol, categoryCol, priceCol, stockCol);
-
-        
-        ObservableList<Book> books = FXCollections.observableArrayList(Database.books);
-        table.setItems(books);
-
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
-        VBox root = new VBox(20, table);
-        root.setAlignment(Pos.CENTER);
-        root.setStyle("-fx-padding: 20;");
+        
+        ObservableList<Book> masterList =
+                FXCollections.observableArrayList(Database.books);
+        table.setItems(masterList);
 
-        Scene scene = new Scene(root, 700, 400);
+        
+        searchBtn.setOnAction(e -> {
+
+            String nameText = nameField.getText().toLowerCase();
+            String categoryText = categoryField.getText().toLowerCase();
+            String priceText = priceField.getText().replaceAll("[^0-9.]", "");
+
+            ObservableList<Book> filteredList =
+                    FXCollections.observableArrayList();
+
+            for (Book book : Database.books) {
+
+                boolean matches = true;
+
+                
+                if (!nameText.isEmpty() &&
+                        !book.getName().toLowerCase().contains(nameText)) {
+                    matches = false;
+                }
+
+                
+                if (!categoryText.isEmpty() &&
+                        !book.getCategory().toLowerCase().contains(categoryText)) {
+                    matches = false;
+                }
+
+               
+                if (!priceText.isEmpty()) {
+                    double searchPrice = Double.parseDouble(priceText);
+                    if (book.getPrice() != searchPrice) {
+                        matches = false;
+                    }
+                }
+
+                if (matches) {
+                    filteredList.add(book);
+                }
+            }
+
+            table.setItems(filteredList);
+        });
+
+        
+        resetBtn.setOnAction(e -> {
+            table.setItems(masterList);
+            nameField.clear();
+            categoryField.clear();
+            priceField.clear();
+        });
+
+        VBox root = new VBox(20, searchBox, table);
+        root.setPadding(new Insets(20));
+        root.setAlignment(Pos.TOP_CENTER);
+
+        Scene scene = new Scene(root, 800, 450);
         stage.setTitle("All Books");
         stage.setScene(scene);
         stage.show();
