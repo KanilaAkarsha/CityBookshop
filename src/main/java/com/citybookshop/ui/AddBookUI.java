@@ -33,19 +33,19 @@ public class AddBookUI {
         String nameValue = name.getText();
         String categoryValue = category.getText();
 
-        // Remove commas and any non-digit chars from price
+        
         String priceText = price.getText().replaceAll("[^0-9.]", "");
         double priceValue = Double.parseDouble(priceText);
 
         String qtyText = qty.getText().replaceAll("[^0-9]", "");
         int qtyValue = Integer.parseInt(qtyText);
 
-        // Add book to database
+        
         com.citybookshop.data.Database.books.add(
             new com.citybookshop.model.Book(idValue, nameValue, categoryValue, priceValue, qtyValue)
         );
 
-        com.citybookshop.util.DatabaseManager.saveData(); // save to file
+        com.citybookshop.util.DatabaseManager.saveData(); 
         System.out.println("Book added successfully!");
 
     } catch (NumberFormatException ex) {

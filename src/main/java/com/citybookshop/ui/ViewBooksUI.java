@@ -16,10 +16,10 @@ import javafx.stage.Stage;
 public class ViewBooksUI {
 
     public static void show(Stage stage) {
-        // TableView
+        
         TableView<Book> table = new TableView<>();
 
-        // Columns
+       
         TableColumn<Book, String> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
 
@@ -37,7 +37,7 @@ public class ViewBooksUI {
 
         table.getColumns().addAll(idCol, nameCol, categoryCol, priceCol, stockCol);
 
-        // Load data from Database
+        
         ObservableList<Book> books = FXCollections.observableArrayList(Database.books);
         table.setItems(books);
 

@@ -42,7 +42,7 @@ public class SignupUI {
         return;
     }
 
-    if (AuthManager.signup(user, pass, roleValue)) { // use roleValue instead of "user"
+    if (AuthManager.signup(user, pass, roleValue)) { 
         showAlert("Signup successful! Please login.");
         try {
             new LoginUI().show(new Stage());

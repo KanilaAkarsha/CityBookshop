@@ -10,10 +10,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // Load database from files
+        
         DatabaseManager.loadData();
 
-        // Show login
+        
         LoginUI.show(primaryStage);
     }
 

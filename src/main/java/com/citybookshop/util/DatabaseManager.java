@@ -8,23 +8,23 @@ import com.citybookshop.model.User;
 
 public class DatabaseManager {
 
-    // Load data from files into Database
+    
     public static void loadData() {
         Database.users = FileManager.loadUsers();
         Database.books = FileManager.loadBooks();
     }
 
-    // Save data from Database into files
+    
     public static void saveData() {
         FileManager.saveUsers(Database.users);
         FileManager.saveBooks(Database.books);
     }
 
-    // User operations
+    
     public static boolean addUser(User user) {
         for (User u : Database.users) {
             if (u.getUsername().equalsIgnoreCase(user.getUsername())) {
-                return false; // User already exists
+                return false; 
             }
         }
         Database.users.add(user);
@@ -36,7 +36,7 @@ public class DatabaseManager {
         return Database.users;
     }
 
-    // Book operations
+    
     public static List<Book> getBooks() {
         return Database.books;
     }

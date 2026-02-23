@@ -5,39 +5,39 @@ import com.citybookshop.model.User;
 
 public class AuthManager {
 
-    // Signup using DatabaseManager
+   
     public static boolean signup(String username, String password, String role) {
-        // Check if user already exists
+        
         for (User u : Database.users) {
             if (u.getUsername().equalsIgnoreCase(username)) {
-                return false; // user already exists
+                return false; 
             }
         }
 
-        // Add new user and save to file
+        
         Database.users.add(new User(username, password, role));
-        DatabaseManager.saveData(); // persist changes
+        DatabaseManager.saveData(); 
         return true;
     }
 
-    // Login using Database
+    
     public static boolean login(String username, String password) {
         for (User u : Database.users) {
             if (u.getUsername().equalsIgnoreCase(username)
                     && u.getPassword().equals(password)) {
-                return true; // correct login
+                return true; 
             }
         }
-        return false; // wrong credentials
+        return false; 
     }
 
-    // Get current logged in user (for simplicity, we just return the first match)
+    
     public static boolean getCurrentUser(String username, String password) {
         for (User u : Database.users) {
             if (u.getUsername().equalsIgnoreCase(username) && u.getPassword().equals(password) && u.getRole().equalsIgnoreCase("admin")) {
-                return true; // user exists
+                return true; 
             }
         }
-        return false; // wrong credentials
+        return false; 
     }
 }

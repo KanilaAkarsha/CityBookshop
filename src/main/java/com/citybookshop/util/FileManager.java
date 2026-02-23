@@ -16,7 +16,7 @@ public class FileManager {
 
     private static final String DATA_DIR = "data";
 
-    // --- Books ---
+    
     public static void saveBooks(List<Book> books) {
         new File(DATA_DIR).mkdirs();
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(DATA_DIR + "/books.dat"))) {
@@ -39,7 +39,7 @@ public class FileManager {
         }
     }
 
-    // --- Users ---
+   
     public static void saveUsers(List<User> users) {
         new File(DATA_DIR).mkdirs();
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(DATA_DIR + "/users.dat"))) {

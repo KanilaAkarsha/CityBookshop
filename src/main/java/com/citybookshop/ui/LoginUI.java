@@ -42,7 +42,7 @@ public class LoginUI {
         return;
     }
 
-    if (AuthManager.login(user, pass)) { // no need to pass users
+    if (AuthManager.login(user, pass)) { 
         showAlert("Login Successful!");
 
 
