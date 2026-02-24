@@ -67,7 +67,7 @@ public class DashboardUI extends Application {
         root.setCenter(content);
 
         addBook.setOnAction(e -> AddBookUI.show(content));
-        viewBooks.setOnAction(e -> ViewBooksUI.show(new Stage()));
+        viewBooks.setOnAction(e -> ViewBooksUIAdminin.show(new Stage()));
 
         Scene scene = new Scene(root, 800, 500);
         scene.getStylesheets().add(

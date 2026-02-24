@@ -21,4 +21,7 @@ public class Book implements Serializable {
     public String getCategory() { return category; }
     public double getPrice() { return price; }
     public int getQty() { return qty; }
+    public void setQty(int qty) {
+    this.qty = qty;
+}
 }
