@@ -39,6 +39,7 @@ public class ViewBooksUI {
 
         
         TableView<Book> table = new TableView<>();
+        table.setStyle("-fx-font-size: 14px; -fx-border-color: #ddd; -fx-border-width: 1px; -fx-border-radius: 10px; -fx-background-color: white;");
 
         TableColumn<Book, String> idCol = new TableColumn<>("ID");
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -117,9 +118,12 @@ public class ViewBooksUI {
         root.setPadding(new Insets(20));
         root.setAlignment(Pos.TOP_CENTER);
 
-        Scene scene = new Scene(root, 800, 450);
+        Scene scene = new Scene(root, 800, 500);
         stage.setTitle("All Books");
         stage.setScene(scene);
         stage.show();
+        scene.getStylesheets().add(
+            ViewBooksUI.class.getResource("/styles/style.css").toExternalForm()
+        );
     }
 }

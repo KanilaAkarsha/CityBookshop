@@ -40,4 +40,14 @@ public class AuthManager {
         }
         return false; 
     }
+
+    public static User getCurrentUserObject(String username, String password) {
+        for (User u : Database.users) {
+            if (u.getUsername().equalsIgnoreCase(username) && u.getPassword().equals(password)) {
+                return u;
+            }
+        }
+        return null;
+    
+    }
 }

@@ -27,7 +27,6 @@ public class LoginUI {
 
         Button loginBtn = new Button("Login");
 
-        
 
        loginBtn.setOnAction(e -> {
 
@@ -45,14 +44,14 @@ public class LoginUI {
 
         if (AuthManager.getCurrentUser(user, pass)) {
             try {
-                new DashboardUI().start(new Stage());
+                new DashboardUI(user,pass).start(new Stage());
                 stage.close();
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
         } else {
             try {
-                new UserUI().start(new Stage());
+                new UserUI(user, pass).start(new Stage());
                 stage.close();
             } catch (Exception ex) {
                 ex.printStackTrace();

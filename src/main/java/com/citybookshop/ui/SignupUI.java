@@ -43,13 +43,8 @@ public class SignupUI {
     }
 
     if (AuthManager.signup(user, pass, roleValue)) { 
-        showAlert("Signup successful! ");
-        try {
-            new DashboardUI().start(new Stage());
-            stage.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        showAlert("Signup successful! The user can now log in.");
+        stage.close();
     } else {
         showAlert("Username already exists!");
     }

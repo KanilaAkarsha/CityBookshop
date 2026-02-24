@@ -45,11 +45,11 @@ public class AddBookUI {
             new com.citybookshop.model.Book(idValue, nameValue, categoryValue, priceValue, qtyValue)
         );
 
-        com.citybookshop.util.DatabaseManager.saveData(); 
-        System.out.println("Book added successfully!");
+        com.citybookshop.util.DatabaseManager.saveData();
+        showAlert("Book added successfully!");
 
     } catch (NumberFormatException ex) {
-        System.out.println("Invalid number input!");
+        showAlert("Please enter valid numeric values for price and quantity.");
     }
 });
 
