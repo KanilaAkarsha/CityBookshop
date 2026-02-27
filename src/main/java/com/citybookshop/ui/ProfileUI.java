@@ -54,7 +54,7 @@ public class ProfileUI {
 
             List<User> users = FileManager.loadUsers();
 
-            // Check if new username already exists (and not current user)
+            
             boolean exists = users.stream()
                     .anyMatch(u -> u.getUsername().equals(newUsername)
                             && !u.getUsername().equals(currentUser.getUsername()));
@@ -64,7 +64,7 @@ public class ProfileUI {
                 return;
             }
 
-            // Update user details
+            
             for (User u : users) {
                 if (u.getUsername().equals(currentUser.getUsername())) {
 
